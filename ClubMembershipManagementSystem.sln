@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClubMembershipManagementSystem", "ClubMembershipManagementSystem\ClubMembershipManagementSystem.csproj", "{1EF27DBC-CC8B-4C24-BA73-381BFDA2990D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1EF27DBC-CC8B-4C24-BA73-381BFDA2990D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EF27DBC-CC8B-4C24-BA73-381BFDA2990D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EF27DBC-CC8B-4C24-BA73-381BFDA2990D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EF27DBC-CC8B-4C24-BA73-381BFDA2990D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FA43ECAC-9C82-43BF-8D6B-5B326C00F486}
+	EndGlobalSection
+EndGlobal
