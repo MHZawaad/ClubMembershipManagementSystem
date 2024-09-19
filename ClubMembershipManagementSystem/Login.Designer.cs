@@ -1,6 +1,6 @@
 ﻿namespace ClubMembershipManagementSystem
 {
-    partial class Form1
+    partial class Login
     {
         /// <summary>
         ///  Required designer variable.
@@ -39,20 +39,20 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(345, 117);
+            label1.Location = new Point(321, 120);
             label1.Name = "label1";
-            label1.Size = new Size(38, 15);
+            label1.Size = new Size(62, 15);
             label1.TabIndex = 0;
-            label1.Text = "label1";
+            label1.Text = "UserName";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(345, 145);
+            label2.Location = new Point(321, 146);
             label2.Name = "label2";
-            label2.Size = new Size(38, 15);
+            label2.Size = new Size(64, 15);
             label2.TabIndex = 1;
-            label2.Text = "label2";
+            label2.Text = "Passwoord";
             // 
             // textBox1
             // 
@@ -73,9 +73,9 @@
             label3.AutoSize = true;
             label3.Location = new Point(407, 181);
             label3.Name = "label3";
-            label3.Size = new Size(38, 15);
+            label3.Size = new Size(44, 15);
             label3.TabIndex = 4;
-            label3.Text = "label3";
+            label3.Text = "Signup";
             // 
             // button1
             // 
@@ -83,10 +83,10 @@
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 5;
-            button1.Text = "button1";
+            button1.Text = "LogIn";
             button1.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -97,8 +97,8 @@
             Controls.Add(textBox1);
             Controls.Add(label2);
             Controls.Add(label1);
-            Name = "Form1";
-            Text = "Form1";
+            Name = "Login";
+            Text = "LogIn";
             ResumeLayout(false);
             PerformLayout();
         }
