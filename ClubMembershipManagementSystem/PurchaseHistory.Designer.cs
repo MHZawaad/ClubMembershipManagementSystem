@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             button7 = new Button();
-            button6 = new Button();
+            PaymentHistory = new Button();
             button5 = new Button();
             button4 = new Button();
             button2 = new Button();
@@ -45,14 +45,14 @@
             button7.Text = "SignOut";
             button7.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // PaymentHistory
             // 
-            button6.Location = new Point(531, 12);
-            button6.Name = "button6";
-            button6.Size = new Size(115, 23);
-            button6.TabIndex = 10;
-            button6.Text = "PaymentHistory";
-            button6.UseVisualStyleBackColor = true;
+            PaymentHistory.Location = new Point(531, 12);
+            PaymentHistory.Name = "PaymentHistory";
+            PaymentHistory.Size = new Size(115, 23);
+            PaymentHistory.TabIndex = 10;
+            PaymentHistory.Text = "PaymentHistory";
+            PaymentHistory.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
@@ -96,7 +96,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(button7);
-            Controls.Add(button6);
+            Controls.Add(PaymentHistory);
             Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(button2);
@@ -109,7 +109,7 @@
         #endregion
 
         private Button button7;
-        private Button button6;
+        private Button PaymentHistory;
         private Button button5;
         private Button button4;
         private Button button2;
