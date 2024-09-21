@@ -28,12 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button7 = new Button();
-            button6 = new Button();
-            button5 = new Button();
-            button4 = new Button();
-            button2 = new Button();
-            button1 = new Button();
             PackageList = new DataGridView();
             AddButton = new Button();
             DeleteButton = new Button();
@@ -44,69 +38,20 @@
             PackageDiscountlb = new Label();
             PackageNametb = new TextBox();
             label1 = new Label();
+            PackageBack = new Button();
+            SignOut = new Button();
+            PackageSearchtb = new TextBox();
+            PackageSearch = new Button();
+            PackageRefresh = new Button();
             ((System.ComponentModel.ISupportInitialize)PackageList).BeginInit();
             SuspendLayout();
-            // 
-            // button7
-            // 
-            button7.Location = new Point(642, 12);
-            button7.Name = "button7";
-            button7.Size = new Size(115, 23);
-            button7.TabIndex = 11;
-            button7.Text = "SignOut";
-            button7.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            button6.Location = new Point(518, 12);
-            button6.Name = "button6";
-            button6.Size = new Size(115, 23);
-            button6.TabIndex = 10;
-            button6.Text = "PaymentHistory";
-            button6.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            button5.Location = new Point(394, 12);
-            button5.Name = "button5";
-            button5.Size = new Size(115, 23);
-            button5.TabIndex = 9;
-            button5.Text = "Perks";
-            button5.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            button4.Location = new Point(270, 12);
-            button4.Name = "button4";
-            button4.Size = new Size(115, 23);
-            button4.TabIndex = 8;
-            button4.Text = "PurchaseHistory";
-            button4.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(146, 12);
-            button2.Name = "button2";
-            button2.Size = new Size(115, 23);
-            button2.TabIndex = 7;
-            button2.Text = "Packages";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(22, 12);
-            button1.Name = "button1";
-            button1.Size = new Size(115, 23);
-            button1.TabIndex = 6;
-            button1.Text = "Membership";
-            button1.UseVisualStyleBackColor = true;
             // 
             // PackageList
             // 
             PackageList.AllowDrop = true;
             PackageList.BorderStyle = BorderStyle.None;
             PackageList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            PackageList.Location = new Point(296, 72);
+            PackageList.Location = new Point(302, 85);
             PackageList.Name = "PackageList";
             PackageList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             PackageList.Size = new Size(240, 150);
@@ -191,11 +136,64 @@
             label1.TabIndex = 21;
             label1.Text = "Name";
             // 
+            // PackageBack
+            // 
+            PackageBack.Location = new Point(22, 12);
+            PackageBack.Name = "PackageBack";
+            PackageBack.Size = new Size(115, 23);
+            PackageBack.TabIndex = 22;
+            PackageBack.Text = "Back";
+            PackageBack.UseVisualStyleBackColor = true;
+            PackageBack.Click += PackageBack_Click;
+            // 
+            // SignOut
+            // 
+            SignOut.Location = new Point(427, 12);
+            SignOut.Name = "SignOut";
+            SignOut.Size = new Size(115, 23);
+            SignOut.TabIndex = 23;
+            SignOut.Text = "SignOut";
+            SignOut.UseVisualStyleBackColor = true;
+            SignOut.Click += SignOut_Click;
+            // 
+            // PackageSearchtb
+            // 
+            PackageSearchtb.Location = new Point(372, 49);
+            PackageSearchtb.Name = "PackageSearchtb";
+            PackageSearchtb.PlaceholderText = "Insert ID";
+            PackageSearchtb.Size = new Size(100, 23);
+            PackageSearchtb.TabIndex = 24;
+            // 
+            // PackageSearch
+            // 
+            PackageSearch.Location = new Point(478, 49);
+            PackageSearch.Name = "PackageSearch";
+            PackageSearch.Size = new Size(53, 22);
+            PackageSearch.TabIndex = 26;
+            PackageSearch.Text = "Search";
+            PackageSearch.UseVisualStyleBackColor = true;
+            PackageSearch.Click += PackageSearch_Click;
+            // 
+            // PackageRefresh
+            // 
+            PackageRefresh.Location = new Point(302, 49);
+            PackageRefresh.Name = "PackageRefresh";
+            PackageRefresh.Size = new Size(64, 22);
+            PackageRefresh.TabIndex = 27;
+            PackageRefresh.Text = "Refresh";
+            PackageRefresh.UseVisualStyleBackColor = true;
+            PackageRefresh.Click += PackageRefresh_Click;
+            // 
             // Packages
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(PackageRefresh);
+            Controls.Add(PackageSearch);
+            Controls.Add(PackageSearchtb);
+            Controls.Add(SignOut);
+            Controls.Add(PackageBack);
             Controls.Add(label1);
             Controls.Add(PackageNametb);
             Controls.Add(PackageDiscountlb);
@@ -206,12 +204,6 @@
             Controls.Add(DeleteButton);
             Controls.Add(AddButton);
             Controls.Add(PackageList);
-            Controls.Add(button7);
-            Controls.Add(button6);
-            Controls.Add(button5);
-            Controls.Add(button4);
-            Controls.Add(button2);
-            Controls.Add(button1);
             Name = "Packages";
             Text = "Form3";
             ((System.ComponentModel.ISupportInitialize)PackageList).EndInit();
@@ -220,13 +212,6 @@
         }
 
         #endregion
-
-        private Button button7;
-        private Button button6;
-        private Button button5;
-        private Button button4;
-        private Button button2;
-        private Button button1;
         private DataGridView PackageList;
         private Button AddButton;
         private Button DeleteButton;
@@ -237,5 +222,10 @@
         private Label PackageDiscountlb;
         private TextBox PackageNametb;
         private Label label1;
+        private Button PackageBack;
+        private Button SignOut;
+        private TextBox PackageSearchtb;
+        private Button PackageSearch;
+        private Button PackageRefresh;
     }
 }

@@ -56,7 +56,7 @@ namespace ClubMembershipManagementSystem
             }
         }
 
-        
+
 
         private void UpdateButton_Click(object sender, EventArgs e)
         {
@@ -68,7 +68,7 @@ namespace ClubMembershipManagementSystem
                     return;
                 }
 
-                // Debugging: Check the key value
+                //  Check the key value
                 if (key <= 0)
                 {
                     MessageBox.Show("No package selected for update. Current key value: " + key);
@@ -82,7 +82,7 @@ namespace ClubMembershipManagementSystem
                 string Query = "UPDATE Packages SET PackageName='{0}', PackagePrice='{1}', PackageDiscount='{2}' WHERE PackageID={3}";
                 Query = String.Format(Query, Packagename, PackagePrice, PackageDiscount, key);
 
-                int result = Con.SetData(Query); // Ensure this method returns the number of affected rows
+                int result = Con.SetData(Query); // Ensure  number of affected rows
 
                 if (result > 0)
                 {
@@ -111,21 +111,21 @@ namespace ClubMembershipManagementSystem
         {
             if (PackageList.SelectedRows.Count > 0)
             {
-                // Make sure to get the value correctly from the selected row
+
                 PackageNametb.Text = PackageList.SelectedRows[0].Cells[1].Value.ToString();
                 PackagePricetb.Text = PackageList.SelectedRows[0].Cells[2].Value.ToString();
                 PackageDiscounttb.Text = PackageList.SelectedRows[0].Cells[3].Value.ToString();
 
-                // Set the key based on the selected row's PackageID (first cell, index 0)
+                // PackageID (first cell, index 0)
                 key = Convert.ToInt32(PackageList.SelectedRows[0].Cells[0].Value);
             }
         }
-        
+
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             try
             {
-                // Check if a package is selected
+
                 if (key <= 0)
                 {
                     MessageBox.Show("No package selected for deletion.");
@@ -138,15 +138,15 @@ namespace ClubMembershipManagementSystem
                                                      MessageBoxButtons.YesNo);
                 if (confirmResult == DialogResult.Yes)
                 {
-                    // Create the delete query
+                    //  delete query
                     string Query = "DELETE FROM Packages WHERE PackageID={0}";
                     Query = String.Format(Query, key);
 
-                    int result = Con.SetData(Query); // Execute the delete command
+                    int result = Con.SetData(Query); //  delete command
 
                     if (result > 0)
                     {
-                        ListerPackages(); // Refresh the package list
+                        ListerPackages(); // Refresh 
                         MessageBox.Show("Package deleted successfully!");
                     }
                     else
@@ -162,5 +162,55 @@ namespace ClubMembershipManagementSystem
         }
 
 
+        private void PackageBack_Click(object sender, EventArgs e)
+         {
+             Admin adminForm = new Admin();
+             this.Hide(); 
+             adminForm.Show(); 
+         }
+
+         private void SignOut_Click(object sender, EventArgs e)
+         {
+             Login loginForm = new Login();
+             this.Hide(); 
+             loginForm.Show(); 
+         }
+
+        
+
+        private void PackageSearch_Click(object sender, EventArgs e)
+        {
+            //ill enter the is in PackageSearchtb and that row will appear\
+            try
+            {
+                string searchQuery = PackageSearchtb.Text;
+
+
+                if (string.IsNullOrWhiteSpace(searchQuery))
+                {
+                    MessageBox.Show("Please enter a search term.");
+                    return;
+                }
+
+                
+                string Query = $"SELECT * FROM Packages WHERE PackageID LIKE '%{searchQuery}%'";
+                PackageList.DataSource = Con.GetData(Query);
+
+
+                PackageSearchtb.Text = "";
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+        }
+
+        private void PackageRefresh_Click(object sender, EventArgs e)
+        {
+            // Reload
+            ListerPackages();
+        }
+
+        
     }
 }
