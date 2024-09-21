@@ -34,7 +34,7 @@
             button4 = new Button();
             button2 = new Button();
             button1 = new Button();
-            PackageList = new DataGridView();
+            PackagesList = new DataGridView();
             AddButton = new Button();
             DeleteButton = new Button();
             UpdateButton = new Button();
@@ -44,7 +44,7 @@
             PackageDiscountlb = new Label();
             PackageNametb = new TextBox();
             label1 = new Label();
-            ((System.ComponentModel.ISupportInitialize)PackageList).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PackagesList).BeginInit();
             SuspendLayout();
             // 
             // button7
@@ -101,17 +101,13 @@
             button1.Text = "Membership";
             button1.UseVisualStyleBackColor = true;
             // 
-            // PackageList
+            // PackagesList
             // 
-            PackageList.AllowDrop = true;
-            PackageList.BorderStyle = BorderStyle.None;
-            PackageList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            PackageList.Location = new Point(296, 72);
-            PackageList.Name = "PackageList";
-            PackageList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            PackageList.Size = new Size(240, 150);
-            PackageList.TabIndex = 12;
-            PackageList.CellContentClick += PackagesList_CellContentClick;
+            PackagesList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            PackagesList.Location = new Point(296, 72);
+            PackagesList.Name = "PackagesList";
+            PackagesList.Size = new Size(240, 150);
+            PackagesList.TabIndex = 12;
             // 
             // AddButton
             // 
@@ -125,7 +121,7 @@
             // 
             // DeleteButton
             // 
-            DeleteButton.Location = new Point(86, 199);
+            DeleteButton.Location = new Point(166, 160);
             DeleteButton.Name = "DeleteButton";
             DeleteButton.Size = new Size(115, 23);
             DeleteButton.TabIndex = 14;
@@ -135,7 +131,7 @@
             // 
             // UpdateButton
             // 
-            UpdateButton.Location = new Point(146, 160);
+            UpdateButton.Location = new Point(102, 199);
             UpdateButton.Name = "UpdateButton";
             UpdateButton.Size = new Size(115, 23);
             UpdateButton.TabIndex = 15;
@@ -149,6 +145,7 @@
             PackagePricetb.Name = "PackagePricetb";
             PackagePricetb.Size = new Size(100, 23);
             PackagePricetb.TabIndex = 16;
+            PackagePricetb.TextChanged += PackagePricetb_TextChanged;
             // 
             // PackageDiscounttb
             // 
@@ -156,6 +153,7 @@
             PackageDiscounttb.Name = "PackageDiscounttb";
             PackageDiscounttb.Size = new Size(100, 23);
             PackageDiscounttb.TabIndex = 17;
+            PackageDiscounttb.TextChanged += PackageDiscounttb_TextChanged;
             // 
             // PackagePricelb
             // 
@@ -205,7 +203,7 @@
             Controls.Add(UpdateButton);
             Controls.Add(DeleteButton);
             Controls.Add(AddButton);
-            Controls.Add(PackageList);
+            Controls.Add(PackagesList);
             Controls.Add(button7);
             Controls.Add(button6);
             Controls.Add(button5);
@@ -214,7 +212,7 @@
             Controls.Add(button1);
             Name = "Packages";
             Text = "Form3";
-            ((System.ComponentModel.ISupportInitialize)PackageList).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PackagesList).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -227,7 +225,7 @@
         private Button button4;
         private Button button2;
         private Button button1;
-        private DataGridView PackageList;
+        private DataGridView PackagesList;
         private Button AddButton;
         private Button DeleteButton;
         private Button UpdateButton;
