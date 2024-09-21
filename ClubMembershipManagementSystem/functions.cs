@@ -23,7 +23,7 @@ namespace ClubMembershipManagementSystem
 
         public Functions()
         {
-            Constr = @"Data Source=(localdb)\MSSQLLocalDB;AttachDbFilename=C:\Users\mahdi\AppData\Local\Microsoft\Microsoft SQL Server Local DB\Instances\MSSQLLocalDB\CMMS.mdf;Integrated Security=True;Connect Timeout=30;";
+            Constr = @"Data Source=(localdb)\MSSQLLocalDB;AttachDbFilename=C:\Users\mahdi\source\repos\ClubMembershipManagementSystem\ClubMembershipManagementSystem\MSSQLLocalDB\CMMS.mdf;Integrated Security=True;Connect Timeout=30;";
             Con = new SqlConnection(Constr);
             Cmd = new SqlCommand();
             Cmd.Connection = Con;
