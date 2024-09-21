@@ -41,13 +41,9 @@ namespace ClubMembershipManagementSystem
             label1 = new Label();
             dateTimePicker2 = new DateTimePicker();
             label7 = new Label();
-            dataGridView1 = new DataGridView();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
             button1 = new Button();
+            button2 = new Button();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // textBox2
@@ -126,73 +122,39 @@ namespace ClubMembershipManagementSystem
             label7.TabIndex = 16;
             label7.Text = "Date of Joining";
             // 
-            // dataGridView1
+            // button1
             // 
-            dataGridView1.BackgroundColor = Color.White;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(527, 52);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(480, 388);
-            dataGridView1.TabIndex = 20;
+            button1.BackColor = Color.Snow;
+            button1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.Sienna;
+            button1.Location = new Point(395, 292);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 33);
+            button1.TabIndex = 43;
+            button1.Text = "SignUp";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
             button2.BackColor = Color.Snow;
             button2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.Sienna;
-            button2.Location = new Point(160, 268);
+            button2.Location = new Point(287, 292);
             button2.Name = "button2";
-            button2.Size = new Size(126, 33);
-            button2.TabIndex = 30;
-            button2.Text = "ADD";
+            button2.Size = new Size(75, 33);
+            button2.TabIndex = 44;
+            button2.Text = "Back";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
-            // button3
-            // 
-            button3.BackColor = Color.Snow;
-            button3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.ForeColor = Color.Sienna;
-            button3.Location = new Point(315, 268);
-            button3.Name = "button3";
-            button3.Size = new Size(126, 33);
-            button3.TabIndex = 41;
-            button3.Text = "UPDATE";
-            button3.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            button4.BackColor = Color.Snow;
-            button4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.ForeColor = Color.Sienna;
-            button4.Location = new Point(241, 330);
-            button4.Name = "button4";
-            button4.Size = new Size(126, 33);
-            button4.TabIndex = 42;
-            button4.Text = "DELETE";
-            button4.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.Snow;
-            button1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.Sienna;
-            button1.Location = new Point(269, 407);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 33);
-            button1.TabIndex = 43;
-            button1.Text = "BACK";
-            button1.UseVisualStyleBackColor = false;
-            // 
-            // Admin
+            // SignUp
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1019, 484);
-            Controls.Add(button1);
-            Controls.Add(button4);
-            Controls.Add(button3);
             Controls.Add(button2);
-            Controls.Add(dataGridView1);
+            Controls.Add(button1);
             Controls.Add(dateTimePicker2);
             Controls.Add(label7);
             Controls.Add(textBox2);
@@ -200,13 +162,11 @@ namespace ClubMembershipManagementSystem
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(panel1);
-            Name = "Admin";
+            Name = "SignUp";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Admin";
-            
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -220,10 +180,7 @@ namespace ClubMembershipManagementSystem
         private DateTimePicker dateTimePicker2;
         private Label label7;
         private Label label1;
-        private DataGridView dataGridView1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
         private Button button1;
+        private Button button2;
     }
 }

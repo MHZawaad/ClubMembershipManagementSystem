@@ -90,6 +90,7 @@ namespace ClubMembershipManagementSystem
             button1.TabIndex = 20;
             button1.Text = "Membership";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -102,6 +103,7 @@ namespace ClubMembershipManagementSystem
             button2.TabIndex = 21;
             button2.Text = "Packages";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -114,6 +116,7 @@ namespace ClubMembershipManagementSystem
             button3.TabIndex = 22;
             button3.Text = "Perks";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
@@ -126,6 +129,7 @@ namespace ClubMembershipManagementSystem
             button4.TabIndex = 23;
             button4.Text = "Purchase History";
             button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
             // 
             // button5
             // 
@@ -138,6 +142,7 @@ namespace ClubMembershipManagementSystem
             button5.TabIndex = 24;
             button5.Text = "Payment History";
             button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
             // 
             // button6
             // 
@@ -150,8 +155,9 @@ namespace ClubMembershipManagementSystem
             button6.TabIndex = 25;
             button6.Text = "SIGN OUT";
             button6.UseVisualStyleBackColor = false;
+            button6.Click += button6_Click;
             // 
-            // Admin_Control
+            // Admin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -164,7 +170,7 @@ namespace ClubMembershipManagementSystem
             Controls.Add(button1);
             Controls.Add(label2);
             Controls.Add(panel1);
-            Name = "Admin_Control";
+            Name = "Admin";
             Text = "Admin_Control";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

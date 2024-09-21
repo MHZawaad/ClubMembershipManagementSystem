@@ -278,6 +278,7 @@ namespace ClubMembershipManagementSystem
             button1.TabIndex = 39;
             button1.Text = "BACK";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button3
             // 
