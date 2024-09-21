@@ -1,0 +1,131 @@
+ClubMembershipManagementSystem
+
+Forms/pages:
+LogIn
+SignUp
+Membership
+Packages
+Perks
+PurchaseHistory
+PaymentHistory
+
+Admin:
+
+Id
+Username
+Password
+DateJoined
+
+Membership:
+
+MembershipId
+FullName
+Address
+PhoneNumber
+Email
+DateOfBirth
+DateJoined
+DateLeft
+PackageName
+Status
+
+Packages:
+
+PackageName
+PackagesPrice
+Discount
+
+Perks:
+
+PerkName
+PerksPrice
+PeriodHours
+
+PurchaseHistory:
+
+PurchaseHistoryId
+MembershipId
+PerkName
+DatePurchased
+
+PaymentHistory:
+
+PaymentHistoryId
+MembershipId
+Total
+Deduction
+PrevBalance
+NetTotal
+AmountPaid
+Balance
+PaymentDate
+
+
+CREATE TABLE [dbo].[Admin] (
+    [UserID]     INT            IDENTITY (1, 1) NOT NULL,
+    [UserName]   NVARCHAR (50)  NOT NULL,
+    [FullName]   NVARCHAR (50)  NOT NULL,
+    [Password]   NVARCHAR (255) NOT NULL,
+    [DateJoined] DATETIME       DEFAULT (getdate()) NOT NULL,
+    PRIMARY KEY CLUSTERED ([UserID] ASC),
+    UNIQUE NONCLUSTERED ([UserName] ASC)
+);
+
+CREATE TABLE [dbo].[Membership] (
+    [MembershipId] INT            IDENTITY (1, 1) NOT NULL,
+    [FullName]     NVARCHAR (100) NOT NULL,
+    [Address]      NVARCHAR (255) NOT NULL,
+    [PhoneNumber]  NVARCHAR (20)  NOT NULL,
+    [Email]        NVARCHAR (100) NOT NULL,
+    [DateOfBirth]  DATETIME       NOT NULL,
+    [DateJoined]   DATETIME       DEFAULT (getdate()) NOT NULL,
+    [DateLeft]     DATETIME       NULL,
+    [PackageID]    INT            NOT NULL,
+    [Status]       NVARCHAR (20)  NOT NULL,
+    PRIMARY KEY CLUSTERED ([MembershipId] ASC),
+    UNIQUE NONCLUSTERED ([Email] ASC),
+    FOREIGN KEY ([PackageID]) REFERENCES [dbo].[Packages] ([PackageID])
+);
+
+CREATE TABLE [dbo].[Packages] (
+    [PackageID]       INT             IDENTITY (1, 1) NOT NULL,
+    [PackageName]     NVARCHAR (100)  NOT NULL,
+    [PackagePrice]    DECIMAL (10, 2) NOT NULL,
+    [PackageDiscount] DECIMAL (5, 2)  NOT NULL,
+    PRIMARY KEY CLUSTERED ([PackageID] ASC),
+    UNIQUE NONCLUSTERED ([PackageName] ASC),
+    CHECK ([PackageDiscount]>=(0) AND [PackageDiscount]<=(100))
+);
+
+CREATE TABLE [dbo].[PaymentHistory] (
+    [PaymentHistoryId] INT             IDENTITY (1, 1) NOT NULL,
+    [MembershipId]     INT             NOT NULL,
+    [Total]            DECIMAL (10, 2) NOT NULL,
+    [Deduction]        DECIMAL (10, 2) NOT NULL,
+    [PrevBalance]      DECIMAL (10, 2) NULL,
+    [NetTotal]         DECIMAL (10, 2) NOT NULL,
+    [AmountPaid]       DECIMAL (10, 2) NOT NULL,
+    [Balance]          DECIMAL (10, 2) NOT NULL,
+    [PaymentDate]      DATETIME        DEFAULT (getdate()) NOT NULL,
+    PRIMARY KEY CLUSTERED ([PaymentHistoryId] ASC),
+    FOREIGN KEY ([MembershipId]) REFERENCES [dbo].[Membership] ([MembershipId])
+);
+
+CREATE TABLE [dbo].[Perks] (
+    [PerkID]          INT             IDENTITY (1, 1) NOT NULL,
+    [PerkName]        NVARCHAR (100)  NOT NULL,
+    [PerksPrice]      DECIMAL (10, 2) NOT NULL,
+    [PerkPeriodHours] DECIMAL (10, 2) NOT NULL,
+    PRIMARY KEY CLUSTERED ([PerkID] ASC)
+);
+
+CREATE TABLE [dbo].[PurchaseHistory] (
+    [PurchaseHistoryId] INT      IDENTITY (1, 1) NOT NULL,
+    [MembershipId]      INT      NOT NULL,
+    [PerkID]            INT      NOT NULL,
+    [DatePurchased]     DATETIME DEFAULT (getdate()) NOT NULL,
+    PRIMARY KEY CLUSTERED ([PurchaseHistoryId] ASC),
+    FOREIGN KEY ([MembershipId]) REFERENCES [dbo].[Membership] ([MembershipId]),
+    FOREIGN KEY ([PerkID]) REFERENCES [dbo].[Perks] ([PerkID])
+);
+
