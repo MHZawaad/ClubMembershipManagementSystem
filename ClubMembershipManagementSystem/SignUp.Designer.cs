@@ -33,54 +33,58 @@ namespace ClubMembershipManagementSystem
         /// </summary>
         private void InitializeComponent()
         {
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
-            label3 = new Label();
-            label2 = new Label();
+            Passwordtb = new TextBox();
+            UseraNametb = new TextBox();
+            Password = new Label();
+            UserName = new Label();
             panel1 = new Panel();
             label1 = new Label();
-            dateTimePicker2 = new DateTimePicker();
-            label7 = new Label();
-            button1 = new Button();
-            button2 = new Button();
+            SignUpButton = new Button();
+            Back = new Button();
+            ConfirmPasswordtb = new TextBox();
+            ConfirmPassword = new Label();
+            FullNametb = new TextBox();
+            FullName = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // textBox2
+            // Passwordtb
             // 
-            textBox2.Location = new Point(287, 172);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(234, 23);
-            textBox2.TabIndex = 13;
+            Passwordtb.Location = new Point(287, 194);
+            Passwordtb.Name = "Passwordtb";
+            Passwordtb.Size = new Size(234, 23);
+            Passwordtb.TabIndex = 13;
+            Passwordtb.TextChanged += Passwordtb_TextChanged;
             // 
-            // textBox1
+            // UseraNametb
             // 
-            textBox1.Location = new Point(287, 125);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(234, 23);
-            textBox1.TabIndex = 12;
+            UseraNametb.Location = new Point(287, 136);
+            UseraNametb.Name = "UseraNametb";
+            UseraNametb.Size = new Size(234, 23);
+            UseraNametb.TabIndex = 12;
+            UseraNametb.TextChanged += UseraNametb_TextChanged;
             // 
-            // label3
+            // Password
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.SaddleBrown;
-            label3.Location = new Point(199, 176);
-            label3.Name = "label3";
-            label3.Size = new Size(72, 19);
-            label3.TabIndex = 11;
-            label3.Text = "Password";
+            Password.AutoSize = true;
+            Password.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Password.ForeColor = Color.SaddleBrown;
+            Password.Location = new Point(199, 198);
+            Password.Name = "Password";
+            Password.Size = new Size(72, 19);
+            Password.TabIndex = 11;
+            Password.Text = "Password";
             // 
-            // label2
+            // UserName
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.SaddleBrown;
-            label2.Location = new Point(194, 125);
-            label2.Name = "label2";
-            label2.Size = new Size(77, 19);
-            label2.TabIndex = 10;
-            label2.Text = "Username";
+            UserName.AutoSize = true;
+            UserName.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            UserName.ForeColor = Color.SaddleBrown;
+            UserName.Location = new Point(194, 136);
+            UserName.Name = "UserName";
+            UserName.Size = new Size(81, 19);
+            UserName.TabIndex = 10;
+            UserName.Text = "UserName";
             // 
             // panel1
             // 
@@ -104,63 +108,85 @@ namespace ClubMembershipManagementSystem
             label1.TabIndex = 2;
             label1.Text = "Admin ";
             // 
-            // dateTimePicker2
+            // SignUpButton
             // 
-            dateTimePicker2.Location = new Point(287, 218);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(234, 23);
-            dateTimePicker2.TabIndex = 17;
+            SignUpButton.BackColor = Color.Snow;
+            SignUpButton.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            SignUpButton.ForeColor = Color.Sienna;
+            SignUpButton.Location = new Point(395, 292);
+            SignUpButton.Name = "SignUpButton";
+            SignUpButton.Size = new Size(87, 33);
+            SignUpButton.TabIndex = 43;
+            SignUpButton.Text = "SignUp";
+            SignUpButton.UseVisualStyleBackColor = false;
+            SignUpButton.Click += SignUpButton_Click;
             // 
-            // label7
+            // Back
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.ForeColor = Color.SaddleBrown;
-            label7.Location = new Point(160, 218);
-            label7.Name = "label7";
-            label7.Size = new Size(111, 19);
-            label7.TabIndex = 16;
-            label7.Text = "Date of Joining";
+            Back.BackColor = Color.Snow;
+            Back.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Back.ForeColor = Color.Sienna;
+            Back.Location = new Point(287, 292);
+            Back.Name = "Back";
+            Back.Size = new Size(75, 33);
+            Back.TabIndex = 44;
+            Back.Text = "Back";
+            Back.UseVisualStyleBackColor = false;
+            Back.Click += Back_Click;
             // 
-            // button1
+            // ConfirmPasswordtb
             // 
-            button1.BackColor = Color.Snow;
-            button1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.Sienna;
-            button1.Location = new Point(395, 292);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 33);
-            button1.TabIndex = 43;
-            button1.Text = "SignUp";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            ConfirmPasswordtb.Location = new Point(287, 223);
+            ConfirmPasswordtb.Name = "ConfirmPasswordtb";
+            ConfirmPasswordtb.Size = new Size(234, 23);
+            ConfirmPasswordtb.TabIndex = 46;
+            ConfirmPasswordtb.TextChanged += ConfirmPasswordtb_TextChanged;
             // 
-            // button2
+            // ConfirmPassword
             // 
-            button2.BackColor = Color.Snow;
-            button2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.Sienna;
-            button2.Location = new Point(287, 292);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 33);
-            button2.TabIndex = 44;
-            button2.Text = "Back";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
+            ConfirmPassword.AutoSize = true;
+            ConfirmPassword.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ConfirmPassword.ForeColor = Color.SaddleBrown;
+            ConfirmPassword.Location = new Point(155, 227);
+            ConfirmPassword.Name = "ConfirmPassword";
+            ConfirmPassword.Size = new Size(126, 19);
+            ConfirmPassword.TabIndex = 45;
+            ConfirmPassword.Text = "ConfirmPassword";
+            // 
+            // FullNametb
+            // 
+            FullNametb.Location = new Point(287, 165);
+            FullNametb.Name = "FullNametb";
+            FullNametb.Size = new Size(234, 23);
+            FullNametb.TabIndex = 48;
+            FullNametb.TextChanged += FullNametb_TextChanged;
+            // 
+            // FullName
+            // 
+            FullName.AutoSize = true;
+            FullName.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            FullName.ForeColor = Color.SaddleBrown;
+            FullName.Location = new Point(194, 165);
+            FullName.Name = "FullName";
+            FullName.Size = new Size(74, 19);
+            FullName.TabIndex = 47;
+            FullName.Text = "FullName";
             // 
             // SignUp
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1019, 484);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(dateTimePicker2);
-            Controls.Add(label7);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(label3);
-            Controls.Add(label2);
+            Controls.Add(FullNametb);
+            Controls.Add(FullName);
+            Controls.Add(ConfirmPasswordtb);
+            Controls.Add(ConfirmPassword);
+            Controls.Add(Back);
+            Controls.Add(SignUpButton);
+            Controls.Add(Passwordtb);
+            Controls.Add(UseraNametb);
+            Controls.Add(Password);
+            Controls.Add(UserName);
             Controls.Add(panel1);
             Name = "SignUp";
             StartPosition = FormStartPosition.CenterScreen;
@@ -172,15 +198,17 @@ namespace ClubMembershipManagementSystem
         }
 
         #endregion
-        private TextBox textBox2;
-        private TextBox textBox1;
-        private Label label3;
-        private Label label2;
+        private TextBox Passwordtb;
+        private TextBox UseraNametb;
+        private Label Password;
+        private Label UserName;
         private Panel panel1;
-        private DateTimePicker dateTimePicker2;
-        private Label label7;
         private Label label1;
-        private Button button1;
-        private Button button2;
+        private Button SignUpButton;
+        private Button Back;
+        private TextBox ConfirmPasswordtb;
+        private Label ConfirmPassword;
+        private TextBox FullNametb;
+        private Label FullName;
     }
 }

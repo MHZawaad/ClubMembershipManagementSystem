@@ -13,6 +13,8 @@ namespace ClubMembershipManagementSystem
     public partial class Packages : Form
     {
         private Functions Con;
+        int key = 0;
+        
         public Packages()
         {
             InitializeComponent();
@@ -20,9 +22,11 @@ namespace ClubMembershipManagementSystem
             ListerPackages();
         }
 
-        private void ListerPackages()
+        public void ListerPackages()
         {
-            String Query = "Select * from Packages";
+            
+            var className= GetType().Name;
+            String Query = $"Select * from {className}";
             PackageList.DataSource = Con.GetData(Query);
         }
 
@@ -106,7 +110,7 @@ namespace ClubMembershipManagementSystem
 
 
 
-        int key = 0;
+        
         private void PackagesList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (PackageList.SelectedRows.Count > 0)
@@ -164,7 +168,7 @@ namespace ClubMembershipManagementSystem
 
         private void PackageBack_Click(object sender, EventArgs e)
          {
-             Admin adminForm = new Admin();
+             Menu adminForm = new Menu();
              this.Hide(); 
              adminForm.Show(); 
          }

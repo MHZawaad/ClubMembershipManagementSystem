@@ -37,8 +37,8 @@ namespace  ClubMembershipManagementSystem
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            UserNametb = new TextBox();
+            Passwordtb = new TextBox();
             button1 = new Button();
             button2 = new Button();
             SuspendLayout();
@@ -70,9 +70,9 @@ namespace  ClubMembershipManagementSystem
             label2.ForeColor = Color.SaddleBrown;
             label2.Location = new Point(205, 125);
             label2.Name = "label2";
-            label2.Size = new Size(77, 19);
+            label2.Size = new Size(81, 19);
             label2.TabIndex = 2;
-            label2.Text = "Username";
+            label2.Text = "UserName";
             // 
             // label3
             // 
@@ -85,19 +85,21 @@ namespace  ClubMembershipManagementSystem
             label3.TabIndex = 3;
             label3.Text = "Password";
             // 
-            // textBox1
+            // UserNametb
             // 
-            textBox1.Location = new Point(288, 125);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(234, 23);
-            textBox1.TabIndex = 4;
+            UserNametb.Location = new Point(288, 125);
+            UserNametb.Name = "UserNametb";
+            UserNametb.Size = new Size(234, 23);
+            UserNametb.TabIndex = 4;
+            UserNametb.TextChanged += UserNametb_TextChanged;
             // 
-            // textBox2
+            // Passwordtb
             // 
-            textBox2.Location = new Point(288, 188);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(234, 23);
-            textBox2.TabIndex = 5;
+            Passwordtb.Location = new Point(288, 188);
+            Passwordtb.Name = "Passwordtb";
+            Passwordtb.Size = new Size(234, 23);
+            Passwordtb.TabIndex = 5;
+            Passwordtb.TextChanged += Passwordtb_TextChanged;
             // 
             // button1
             // 
@@ -110,20 +112,20 @@ namespace  ClubMembershipManagementSystem
             button1.TabIndex = 6;
             button1.Text = "LOGIN";
             button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            button1.Click += LogIn_Click;
             // 
             // button2
             // 
             button2.BackColor = Color.Snow;
             button2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.Sienna;
-            button2.Location = new Point(429, 281);
+            button2.Location = new Point(380, 281);
             button2.Name = "button2";
             button2.Size = new Size(75, 33);
             button2.TabIndex = 7;
             button2.Text = "SIGNUP";
             button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
+            button2.Click += SignUpButton_Click;
             // 
             // Login
             // 
@@ -133,8 +135,8 @@ namespace  ClubMembershipManagementSystem
             ClientSize = new Size(622, 354);
             Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(Passwordtb);
+            Controls.Add(UserNametb);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -152,8 +154,8 @@ namespace  ClubMembershipManagementSystem
         private Label label1;
         private Label label2;
         private Label label3;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox UserNametb;
+        private TextBox Passwordtb;
         private Button button1;
         private Button button2;
     }

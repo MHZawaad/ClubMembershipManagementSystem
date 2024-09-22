@@ -19,9 +19,11 @@ namespace ClubMembershipManagementSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Admin login = new Admin();
+            Menu login = new Menu();
             this.Hide();
             login.Show();
         }
+
+        
     }
 }

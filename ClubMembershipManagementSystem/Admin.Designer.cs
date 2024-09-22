@@ -33,161 +33,270 @@ namespace ClubMembershipManagementSystem
         /// </summary>
         private void InitializeComponent()
         {
+            Back = new Button();
+            FullNametb = new TextBox();
+            UserNametb = new TextBox();
+            UserName = new Label();
             panel1 = new Panel();
-            label1 = new Label();
-            label2 = new Label();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
-            button6 = new Button();
+            label4 = new Label();
+            FullName = new Label();
+            Password = new Label();
+            Passwordtb = new TextBox();
+            DateJoineddt = new DateTimePicker();
+            DateJoined = new Label();
+            Lister = new DataGridView();
+            Delete = new Button();
+            Update = new Button();
+            Add = new Button();
+            Refresh = new Button();
+            Search = new Button();
+            UserIDtb = new TextBox();
+            SignOut = new Button();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)Lister).BeginInit();
             SuspendLayout();
+            // 
+            // Back
+            // 
+            Back.BackColor = Color.Snow;
+            Back.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Back.ForeColor = Color.Sienna;
+            Back.Location = new Point(199, 12);
+            Back.Name = "Back";
+            Back.Size = new Size(75, 33);
+            Back.TabIndex = 20;
+            Back.Text = "Back";
+            Back.UseVisualStyleBackColor = false;
+            Back.Click += button1_Click;
+            // 
+            // FullNametb
+            // 
+            FullNametb.Location = new Point(305, 241);
+            FullNametb.Name = "FullNametb";
+            FullNametb.Size = new Size(234, 23);
+            FullNametb.TabIndex = 19;
+            // 
+            // UserNametb
+            // 
+            UserNametb.Location = new Point(305, 203);
+            UserNametb.Name = "UserNametb";
+            UserNametb.Size = new Size(234, 23);
+            UserNametb.TabIndex = 18;
+            // 
+            // UserName
+            // 
+            UserName.AutoSize = true;
+            UserName.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            UserName.ForeColor = Color.SaddleBrown;
+            UserName.Location = new Point(213, 203);
+            UserName.Name = "UserName";
+            UserName.Size = new Size(81, 19);
+            UserName.TabIndex = 16;
+            UserName.Text = "UserName";
             // 
             // panel1
             // 
             panel1.BackColor = Color.Tan;
-            panel1.Controls.Add(label1);
+            panel1.Controls.Add(label4);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(220, 405);
-            panel1.TabIndex = 10;
+            panel1.Size = new Size(175, 471);
+            panel1.TabIndex = 15;
             // 
-            // label1
+            // label4
             // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.White;
-            label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.SaddleBrown;
-            label1.Location = new Point(29, 95);
-            label1.Name = "label1";
-            label1.Size = new Size(117, 21);
-            label1.TabIndex = 2;
-            label1.Text = "Admin Control";
+            label4.AutoSize = true;
+            label4.BackColor = Color.White;
+            label4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.SaddleBrown;
+            label4.Location = new Point(23, 76);
+            label4.Name = "label4";
+            label4.Size = new Size(133, 21);
+            label4.TabIndex = 2;
+            label4.Text = "Purchase History";
             // 
-            // label2
+            // FullName
             // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.White;
-            label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.SaddleBrown;
-            label2.Location = new Point(415, 21);
-            label2.Name = "label2";
-            label2.Size = new Size(52, 21);
-            label2.TabIndex = 11;
-            label2.Text = "Menu";
+            FullName.AutoSize = true;
+            FullName.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            FullName.ForeColor = Color.SaddleBrown;
+            FullName.Location = new Point(225, 241);
+            FullName.Name = "FullName";
+            FullName.Size = new Size(74, 19);
+            FullName.TabIndex = 21;
+            FullName.Text = "FullName";
             // 
-            // button1
+            // Password
             // 
-            button1.BackColor = Color.Snow;
-            button1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.Sienna;
-            button1.Location = new Point(262, 108);
-            button1.Name = "button1";
-            button1.Size = new Size(114, 33);
-            button1.TabIndex = 20;
-            button1.Text = "Membership";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            Password.AutoSize = true;
+            Password.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Password.ForeColor = Color.SaddleBrown;
+            Password.Location = new Point(227, 270);
+            Password.Name = "Password";
+            Password.Size = new Size(72, 19);
+            Password.TabIndex = 23;
+            Password.Text = "Password";
             // 
-            // button2
+            // Passwordtb
             // 
-            button2.BackColor = Color.Snow;
-            button2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.Sienna;
-            button2.Location = new Point(262, 176);
-            button2.Name = "button2";
-            button2.Size = new Size(101, 33);
-            button2.TabIndex = 21;
-            button2.Text = "Packages";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
+            Passwordtb.Location = new Point(305, 270);
+            Passwordtb.Name = "Passwordtb";
+            Passwordtb.Size = new Size(234, 23);
+            Passwordtb.TabIndex = 24;
             // 
-            // button3
+            // DateJoineddt
             // 
-            button3.BackColor = Color.Snow;
-            button3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.ForeColor = Color.Sienna;
-            button3.Location = new Point(262, 251);
-            button3.Name = "button3";
-            button3.Size = new Size(75, 33);
-            button3.TabIndex = 22;
-            button3.Text = "Perks";
-            button3.UseVisualStyleBackColor = false;
-            button3.Click += button3_Click;
+            DateJoineddt.Location = new Point(305, 308);
+            DateJoineddt.Name = "DateJoineddt";
+            DateJoineddt.Size = new Size(199, 23);
+            DateJoineddt.TabIndex = 29;
+            DateJoineddt.ValueChanged += dateTimePicker2_ValueChanged;
             // 
-            // button4
+            // DateJoined
             // 
-            button4.BackColor = Color.Snow;
-            button4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.ForeColor = Color.Sienna;
-            button4.Location = new Point(435, 117);
-            button4.Name = "button4";
-            button4.Size = new Size(158, 33);
-            button4.TabIndex = 23;
-            button4.Text = "Purchase History";
-            button4.UseVisualStyleBackColor = false;
-            button4.Click += button4_Click;
+            DateJoined.AutoSize = true;
+            DateJoined.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            DateJoined.ForeColor = Color.SaddleBrown;
+            DateJoined.Location = new Point(213, 308);
+            DateJoined.Name = "DateJoined";
+            DateJoined.Size = new Size(86, 19);
+            DateJoined.TabIndex = 28;
+            DateJoined.Text = "DateJoined";
             // 
-            // button5
+            // Lister
             // 
-            button5.BackColor = Color.Snow;
-            button5.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button5.ForeColor = Color.Sienna;
-            button5.Location = new Point(435, 208);
-            button5.Name = "button5";
-            button5.Size = new Size(158, 33);
-            button5.TabIndex = 24;
-            button5.Text = "Payment History";
-            button5.UseVisualStyleBackColor = false;
-            button5.Click += button5_Click;
+            Lister.BackgroundColor = Color.White;
+            Lister.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            Lister.Location = new Point(611, 109);
+            Lister.Name = "Lister";
+            Lister.Size = new Size(367, 337);
+            Lister.TabIndex = 30;
             // 
-            // button6
+            // Delete
             // 
-            button6.BackColor = Color.Snow;
-            button6.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button6.ForeColor = Color.Sienna;
-            button6.Location = new Point(403, 322);
-            button6.Name = "button6";
-            button6.Size = new Size(119, 33);
-            button6.TabIndex = 25;
-            button6.Text = "SIGN OUT";
-            button6.UseVisualStyleBackColor = false;
-            button6.Click += button6_Click;
+            Delete.BackColor = Color.Snow;
+            Delete.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Delete.ForeColor = Color.Sienna;
+            Delete.Location = new Point(286, 413);
+            Delete.Name = "Delete";
+            Delete.Size = new Size(126, 33);
+            Delete.TabIndex = 44;
+            Delete.Text = "Delete";
+            Delete.UseVisualStyleBackColor = false;
+            // 
+            // Update
+            // 
+            Update.BackColor = Color.Snow;
+            Update.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Update.ForeColor = Color.Sienna;
+            Update.Location = new Point(351, 358);
+            Update.Name = "Update";
+            Update.Size = new Size(126, 33);
+            Update.TabIndex = 43;
+            Update.Text = "Update";
+            Update.UseVisualStyleBackColor = false;
+            // 
+            // Add
+            // 
+            Add.BackColor = Color.Snow;
+            Add.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Add.ForeColor = Color.Sienna;
+            Add.Location = new Point(199, 358);
+            Add.Name = "Add";
+            Add.Size = new Size(126, 33);
+            Add.TabIndex = 42;
+            Add.Text = "Add";
+            Add.UseVisualStyleBackColor = false;
+            // 
+            // Refresh
+            // 
+            Refresh.Location = new Point(724, 59);
+            Refresh.Name = "Refresh";
+            Refresh.Size = new Size(64, 22);
+            Refresh.TabIndex = 48;
+            Refresh.Text = "Refresh";
+            Refresh.UseVisualStyleBackColor = true;
+            Refresh.Click += PackageRefresh_Click;
+            // 
+            // Search
+            // 
+            Search.Location = new Point(900, 59);
+            Search.Name = "Search";
+            Search.Size = new Size(53, 22);
+            Search.TabIndex = 47;
+            Search.Text = "Search";
+            Search.UseVisualStyleBackColor = true;
+            // 
+            // UserIDtb
+            // 
+            UserIDtb.Location = new Point(794, 59);
+            UserIDtb.Name = "UserIDtb";
+            UserIDtb.PlaceholderText = "Insert ID";
+            UserIDtb.Size = new Size(100, 23);
+            UserIDtb.TabIndex = 46;
+            // 
+            // SignOut
+            // 
+            SignOut.Location = new Point(849, 22);
+            SignOut.Name = "SignOut";
+            SignOut.Size = new Size(115, 23);
+            SignOut.TabIndex = 45;
+            SignOut.Text = "SignOut";
+            SignOut.UseVisualStyleBackColor = true;
             // 
             // Admin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(756, 405);
-            Controls.Add(button6);
-            Controls.Add(button5);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(label2);
+            ClientSize = new Size(1039, 471);
+            Controls.Add(Refresh);
+            Controls.Add(Search);
+            Controls.Add(UserIDtb);
+            Controls.Add(SignOut);
+            Controls.Add(Delete);
+            Controls.Add(Update);
+            Controls.Add(Add);
+            Controls.Add(Lister);
+            Controls.Add(DateJoineddt);
+            Controls.Add(DateJoined);
+            Controls.Add(Password);
+            Controls.Add(Passwordtb);
+            Controls.Add(FullName);
+            Controls.Add(Back);
+            Controls.Add(FullNametb);
+            Controls.Add(UserNametb);
+            Controls.Add(UserName);
             Controls.Add(panel1);
             Name = "Admin";
-            Text = "Admin_Control";
+            Text = "Purchase _History";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)Lister).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
+        private Button Back;
+        private TextBox FullNametb;
+        private TextBox UserNametb;
+        private Label UserName;
         private Panel panel1;
-        private Label label1;
-        private Label label2;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
-        private Button button5;
-        private Button button6;
+        private Label label4;
+        private Label FullName;
+        private Label Password;
+        private TextBox Passwordtb;
+        private DateTimePicker DateJoineddt;
+        private Label DateJoined;
+        private DataGridView Lister;
+        private Button Delete;
+        private Button Update;
+        private Button Add;
+        private Button Refresh;
+        private Button Search;
+        private TextBox UserIDtb;
+        private Button SignOut;
     }
 }
