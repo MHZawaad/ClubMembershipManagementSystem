@@ -59,8 +59,6 @@ namespace ClubMembershipManagementSystem
             Delete = new Button();
             Refresh = new Button();
             Search = new Button();
-            MemberShipId = new Label();
-            MemberShipIdtb = new TextBox();
             DateLeftdt = new DateTimePicker();
             label4 = new Label();
             ((System.ComponentModel.ISupportInitialize)Lister).BeginInit();
@@ -72,11 +70,11 @@ namespace ClubMembershipManagementSystem
             Add.BackColor = Color.Snow;
             Add.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Add.ForeColor = Color.Sienna;
-            Add.Location = new Point(26, 419);
+            Add.Location = new Point(384, 301);
             Add.Name = "Add";
-            Add.Size = new Size(126, 33);
+            Add.Size = new Size(126, 91);
             Add.TabIndex = 29;
-            Add.Text = "ADD";
+            Add.Text = "Add and go to payment";
             Add.UseVisualStyleBackColor = false;
             Add.Click += Add_Click;
             // 
@@ -86,6 +84,7 @@ namespace ClubMembershipManagementSystem
             Lister.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             Lister.Location = new Point(547, 75);
             Lister.Name = "Lister";
+            Lister.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             Lister.Size = new Size(470, 355);
             Lister.TabIndex = 17;
             Lister.CellContentClick += Lister_CellContentClick;
@@ -275,7 +274,6 @@ namespace ClubMembershipManagementSystem
             Statustb.Name = "Statustb";
             Statustb.Size = new Size(180, 23);
             Statustb.TabIndex = 37;
-          
             // 
             // PackageIDtb
             // 
@@ -330,24 +328,6 @@ namespace ClubMembershipManagementSystem
             Search.UseVisualStyleBackColor = true;
             Search.Click += Search_Click;
             // 
-            // MemberShipId
-            // 
-            MemberShipId.AutoSize = true;
-            MemberShipId.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            MemberShipId.ForeColor = Color.SaddleBrown;
-            MemberShipId.Location = new Point(30, 75);
-            MemberShipId.Name = "MemberShipId";
-            MemberShipId.Size = new Size(110, 19);
-            MemberShipId.TabIndex = 59;
-            MemberShipId.Text = "MemberShipId";
-            // 
-            // MemberShipIdtb
-            // 
-            MemberShipIdtb.Location = new Point(146, 75);
-            MemberShipIdtb.Name = "MemberShipIdtb";
-            MemberShipIdtb.Size = new Size(191, 23);
-            MemberShipIdtb.TabIndex = 58;
-            // 
             // DateLeftdt
             // 
             DateLeftdt.Location = new Point(138, 330);
@@ -375,8 +355,6 @@ namespace ClubMembershipManagementSystem
             Controls.Add(label4);
             Controls.Add(Refresh);
             Controls.Add(Search);
-            Controls.Add(MemberShipId);
-            Controls.Add(MemberShipIdtb);
             Controls.Add(Delete);
             Controls.Add(Update);
             Controls.Add(PackageIDtb);
@@ -436,8 +414,6 @@ namespace ClubMembershipManagementSystem
         private Button SignOut;
         private Button Refresh;
         private Button Search;
-        private Label MemberShipId;
-        private TextBox MemberShipIdtb;
         private DateTimePicker DateLeftdt;
         private Label label4;
     }

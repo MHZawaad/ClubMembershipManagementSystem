@@ -47,6 +47,10 @@ namespace ClubMembershipManagementSystem
                 Con.SetData(Query);
                 MessageBox.Show("Membership added successfully!");
                 ListerMemberships(); // Refresh the list
+
+                PaymentHistory ph = new PaymentHistory();
+                ph.Show();
+                this.Hide();
             }
             catch (Exception ex)
             {
@@ -79,6 +83,9 @@ namespace ClubMembershipManagementSystem
                 Con.SetData(Query);
                 MessageBox.Show("Membership updated successfully!");
                 ListerMemberships(); // Refresh the list
+
+                
+
             }
             catch (Exception ex)
             {
