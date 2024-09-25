@@ -24,10 +24,21 @@ namespace ClubMembershipManagementSystem
 
         public void ListerPackages()
         {
+
             
-            var className= GetType().Name;
-            String Query = $"Select * from {className}";
-            PackageList.DataSource = Con.GetData(Query);
+                var className = GetType().Name;
+                String Query = $"SELECT * FROM {className}";
+                PackageList.DataSource = Con.GetData(Query);
+
+                PackageSearchtb.Text = "Search Only";
+                PackageNametb.Text = "";
+                PackagePricetb.Text = "";
+                PackageDiscounttb.Text = "";
+
+                
+                key = 0;
+            
+
         }
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -72,7 +83,7 @@ namespace ClubMembershipManagementSystem
                     return;
                 }
 
-                //  Check the key value
+                
                 if (key <= 0)
                 {
                     MessageBox.Show("No package selected for update. Current key value: " + key);
@@ -86,7 +97,7 @@ namespace ClubMembershipManagementSystem
                 string Query = "UPDATE Packages SET PackageName='{0}', PackagePrice='{1}', PackageDiscount='{2}' WHERE PackageID={3}";
                 Query = String.Format(Query, Packagename, PackagePrice, PackageDiscount, key);
 
-                int result = Con.SetData(Query); // Ensure  number of affected rows
+                int result = Con.SetData(Query);
 
                 if (result > 0)
                 {
@@ -115,12 +126,12 @@ namespace ClubMembershipManagementSystem
         {
             if (PackageList.SelectedRows.Count > 0)
             {
-
+                PackageSearchtb.Text = PackageList.SelectedRows[0].Cells[1].Value.ToString();
                 PackageNametb.Text = PackageList.SelectedRows[0].Cells[1].Value.ToString();
                 PackagePricetb.Text = PackageList.SelectedRows[0].Cells[2].Value.ToString();
                 PackageDiscounttb.Text = PackageList.SelectedRows[0].Cells[3].Value.ToString();
 
-                // PackageID (first cell, index 0)
+                
                 key = Convert.ToInt32(PackageList.SelectedRows[0].Cells[0].Value);
             }
         }
@@ -136,21 +147,21 @@ namespace ClubMembershipManagementSystem
                     return;
                 }
 
-                // Confirm deletion
+                
                 var confirmResult = MessageBox.Show("Are you sure you want to delete this package?",
                                                      "Confirm Deletion",
                                                      MessageBoxButtons.YesNo);
                 if (confirmResult == DialogResult.Yes)
                 {
-                    //  delete query
+                    
                     string Query = "DELETE FROM Packages WHERE PackageID={0}";
                     Query = String.Format(Query, key);
 
-                    int result = Con.SetData(Query); //  delete command
+                    int result = Con.SetData(Query); 
 
                     if (result > 0)
                     {
-                        ListerPackages(); // Refresh 
+                        ListerPackages(); 
                         MessageBox.Show("Package deleted successfully!");
                     }
                     else
@@ -180,38 +191,62 @@ namespace ClubMembershipManagementSystem
              loginForm.Show(); 
          }
 
-        
+
 
         private void PackageSearch_Click(object sender, EventArgs e)
         {
-            //ill enter the is in PackageSearchtb and that row will appear\
             try
             {
-                string searchQuery = PackageSearchtb.Text;
+                string Query = "SELECT * FROM Packages WHERE 1=1"; 
+                bool hasCondition = false; 
 
-
-                if (string.IsNullOrWhiteSpace(searchQuery))
+                if (!string.IsNullOrWhiteSpace(PackageSearchtb.Text))
                 {
-                    MessageBox.Show("Please enter a search term.");
-                    return;
+                    string packageIDQuery = PackageSearchtb.Text;
+                    Query += $" AND PackageID LIKE '%{packageIDQuery}%'";
+                    hasCondition = true;
                 }
 
-                
-                string Query = $"SELECT * FROM Packages WHERE PackageID LIKE '%{searchQuery}%'";
-                PackageList.DataSource = Con.GetData(Query);
+                if (!string.IsNullOrWhiteSpace(PackageNametb.Text))
+                {
+                    string packageNameQuery = PackageNametb.Text;
+                    Query += $" AND PackageName LIKE '%{packageNameQuery}%'";
+                    hasCondition = true;
+                }
 
+                if (!string.IsNullOrWhiteSpace(PackagePricetb.Text))
+                {
+                    string packagePriceQuery = PackagePricetb.Text;
+                    Query += $" AND PackagePrice LIKE '%{packagePriceQuery}%'";
+                    hasCondition = true;
+                }
 
-                PackageSearchtb.Text = "";
+                if (!string.IsNullOrWhiteSpace(PackageDiscounttb.Text))
+                {
+                    string packageDiscountQuery = PackageDiscounttb.Text;
+                    Query += $" AND PackageDiscount LIKE '%{packageDiscountQuery}%'";
+                    hasCondition = true;
+                }
+
+                if (hasCondition)
+                {
+                    PackageList.DataSource = Con.GetData(Query); 
+                }
+                else
+                {
+                    MessageBox.Show("Please enter at least one search term.");
+                }
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(Ex.Message);
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
 
+
         private void PackageRefresh_Click(object sender, EventArgs e)
         {
-            // Reload
+            
             ListerPackages();
         }
 

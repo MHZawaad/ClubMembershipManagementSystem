@@ -13,22 +13,22 @@ namespace ClubMembershipManagementSystem
             Con = new Functions();
         }
 
-        private void Back_Click(object sender, EventArgs e) // Back button
+        private void Back_Click(object sender, EventArgs e) 
         {
             Login login = new Login();
             this.Hide();
             login.Show();
         }
 
-        private void SignUpButton_Click(object sender, EventArgs e) // Sign Up button
+        private void SignUpButton_Click(object sender, EventArgs e)
         {
-            // Capture input values
+            
             string UserName = UseraNametb.Text;
-            string FullName = FullNametb.Text; // Ensure this is defined
+            string FullName = FullNametb.Text; 
             string Password = Passwordtb.Text;
             string ConfirmPassword = ConfirmPasswordtb.Text;
 
-            // Validate input
+            
             if (string.IsNullOrWhiteSpace(UserName) || string.IsNullOrWhiteSpace(FullName) || string.IsNullOrWhiteSpace(Password))
             {
                 MessageBox.Show("Please fill in all fields.");
@@ -41,18 +41,18 @@ namespace ClubMembershipManagementSystem
                 return;
             }
 
-            // Insert into Admin table
+            
             try
             {
-                // Use string interpolation for the query
+               
                 string Query = $"INSERT INTO Admin (UserName, FullName, Password) VALUES ('{UserName}', '{FullName}', '{Password}')";
 
-                // Execute the insert query
+                
                 Con.SetData(Query);
 
                 MessageBox.Show("Sign Up successful! You can now log in.");
 
-                // Redirect to login
+                
                 Login login = new Login();
                 this.Hide();
                 login.Show();

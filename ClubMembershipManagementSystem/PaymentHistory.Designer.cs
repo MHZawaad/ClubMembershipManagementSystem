@@ -46,6 +46,9 @@ namespace ClubMembershipManagementSystem
             SignOut = new Button();
             AmountPaidtb = new TextBox();
             Add = new Button();
+            Delete = new Button();
+            label1 = new Label();
+            PaymentHistoryIDtb = new TextBox();
             ((System.ComponentModel.ISupportInitialize)Lister).BeginInit();
             SuspendLayout();
             // 
@@ -54,7 +57,7 @@ namespace ClubMembershipManagementSystem
             label3.AutoSize = true;
             label3.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.SaddleBrown;
-            label3.Location = new Point(26, 147);
+            label3.Location = new Point(39, 222);
             label3.Name = "label3";
             label3.Size = new Size(43, 19);
             label3.TabIndex = 36;
@@ -62,7 +65,7 @@ namespace ClubMembershipManagementSystem
             // 
             // Totaltb
             // 
-            Totaltb.Location = new Point(142, 147);
+            Totaltb.Location = new Point(155, 222);
             Totaltb.Name = "Totaltb";
             Totaltb.Size = new Size(191, 23);
             Totaltb.TabIndex = 37;
@@ -72,7 +75,7 @@ namespace ClubMembershipManagementSystem
             MemberShipId.AutoSize = true;
             MemberShipId.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             MemberShipId.ForeColor = Color.SaddleBrown;
-            MemberShipId.Location = new Point(26, 67);
+            MemberShipId.Location = new Point(39, 142);
             MemberShipId.Name = "MemberShipId";
             MemberShipId.Size = new Size(110, 19);
             MemberShipId.TabIndex = 35;
@@ -93,7 +96,7 @@ namespace ClubMembershipManagementSystem
             // 
             // MemberShipIdtb
             // 
-            MemberShipIdtb.Location = new Point(142, 67);
+            MemberShipIdtb.Location = new Point(155, 142);
             MemberShipIdtb.Name = "MemberShipIdtb";
             MemberShipIdtb.Size = new Size(191, 23);
             MemberShipIdtb.TabIndex = 33;
@@ -114,7 +117,7 @@ namespace ClubMembershipManagementSystem
             label10.AutoSize = true;
             label10.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label10.ForeColor = Color.SaddleBrown;
-            label10.Location = new Point(26, 182);
+            label10.Location = new Point(39, 257);
             label10.Name = "label10";
             label10.Size = new Size(90, 19);
             label10.TabIndex = 52;
@@ -134,7 +137,7 @@ namespace ClubMembershipManagementSystem
             // 
             // Refresh
             // 
-            Refresh.Location = new Point(142, 109);
+            Refresh.Location = new Point(155, 184);
             Refresh.Name = "Refresh";
             Refresh.Size = new Size(79, 22);
             Refresh.TabIndex = 57;
@@ -144,7 +147,7 @@ namespace ClubMembershipManagementSystem
             // 
             // Search
             // 
-            Search.Location = new Point(246, 109);
+            Search.Location = new Point(259, 184);
             Search.Name = "Search";
             Search.Size = new Size(87, 22);
             Search.TabIndex = 56;
@@ -164,7 +167,7 @@ namespace ClubMembershipManagementSystem
             // 
             // AmountPaidtb
             // 
-            AmountPaidtb.Location = new Point(142, 182);
+            AmountPaidtb.Location = new Point(155, 257);
             AmountPaidtb.Name = "AmountPaidtb";
             AmountPaidtb.Size = new Size(191, 23);
             AmountPaidtb.TabIndex = 60;
@@ -178,11 +181,42 @@ namespace ClubMembershipManagementSystem
             Add.Text = "Add";
             Add.Click += Add_Click;
             // 
+            // Delete
+            // 
+            Delete.Location = new Point(54, 423);
+            Delete.Name = "Delete";
+            Delete.Size = new Size(126, 33);
+            Delete.TabIndex = 61;
+            Delete.Text = "Delete";
+            Delete.Click += Delete_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.SaddleBrown;
+            label1.Location = new Point(39, 108);
+            label1.Name = "label1";
+            label1.Size = new Size(85, 19);
+            label1.TabIndex = 63;
+            label1.Text = "PaymentID";
+            // 
+            // PaymentHistoryIDtb
+            // 
+            PaymentHistoryIDtb.Location = new Point(155, 108);
+            PaymentHistoryIDtb.Name = "PaymentHistoryIDtb";
+            PaymentHistoryIDtb.Size = new Size(191, 23);
+            PaymentHistoryIDtb.TabIndex = 62;
+            PaymentHistoryIDtb.TextChanged += PaymentHistoryIDtb_TextChanged;
+            // 
             // PaymentHistory
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1027, 483);
+            Controls.Add(label1);
+            Controls.Add(PaymentHistoryIDtb);
+            Controls.Add(Delete);
             Controls.Add(SignOut);
             Controls.Add(Refresh);
             Controls.Add(Search);
@@ -216,5 +250,8 @@ namespace ClubMembershipManagementSystem
         private Button SignOut;
         private TextBox AmountPaidtb;
         private Button Add;
+        private Button Delete;
+        private Label label1;
+        private TextBox PaymentHistoryIDtb;
     }
 }

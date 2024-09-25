@@ -16,18 +16,18 @@ namespace ClubMembershipManagementSystem
 
         private void LogIn_Click(object sender, EventArgs e)
         {
-            // Capture input values
+            
             string UserName = UserNametb.Text;
             string Password = Passwordtb.Text;
 
-            // Validate input
+            
             if (string.IsNullOrWhiteSpace(UserName) || string.IsNullOrWhiteSpace(Password))
             {
                 MessageBox.Show("Please enter both username and password.");
                 return;
             }
 
-            // Check credentials
+            
             try
             {
                 string Query = $"SELECT * FROM Admin WHERE UserName = '{UserName}' AND Password = '{Password}'";
@@ -35,7 +35,7 @@ namespace ClubMembershipManagementSystem
 
                 if (result.Rows.Count > 0)
                 {
-                    // Successful login
+                    
                     Menu adminForm = new Menu();
                     this.Hide();
                     adminForm.Show();

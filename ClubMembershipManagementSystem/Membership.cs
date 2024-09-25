@@ -7,13 +7,13 @@ namespace ClubMembershipManagementSystem
     public partial class Membership : Form
     {
         private Functions Con;
-        int key = 0; // For tracking selected membership
+        int key = 0;
 
         public Membership()
         {
             InitializeComponent();
             Con = new Functions();
-            ListerMemberships(); // Load existing memberships
+            ListerMemberships();
         }
 
         private void Back_Click(object sender, EventArgs e)
@@ -25,8 +25,23 @@ namespace ClubMembershipManagementSystem
 
         private void ListerMemberships()
         {
-            string Query = "SELECT * FROM Membership";
-            Lister.DataSource = Con.GetData(Query); // Update to use Lister
+            
+            
+                string Query = "SELECT * FROM Membership";
+                Lister.DataSource = Con.GetData(Query);
+
+                MembershipIDtb.Text = "Search Only";
+                FullNametb.Clear();
+                Adresstb.Clear();
+                PhoneNumbertb.Clear();
+                Emailtb.Clear();
+                DateOfBirthdt.Value = DateTime.Now; 
+                DateJoineddt.Value = DateTime.Now; 
+                DateLeftdt.Value = DateTime.Now; 
+                PackageIDtb.Clear();
+                Statustb.Clear();
+            
+
         }
 
         private void Add_Click(object sender, EventArgs e)
@@ -38,19 +53,26 @@ namespace ClubMembershipManagementSystem
                 string PhoneNumber = PhoneNumbertb.Text;
                 string Email = Emailtb.Text;
                 DateTime DateOfBirth = DateOfBirthdt.Value;
-                DateTime DateJoined = DateJoineddt.Value; // Get user input
+                DateTime DateJoined = DateJoineddt.Value;
+                DateTime DateLeft = DateLeftdt.Value; 
                 string Status = Statustb.Text;
-                int PackageID = int.Parse(PackageIDtb.Text); // Assuming it's an integer
+                int PackageID = int.Parse(PackageIDtb.Text);
 
-                string Query = $"INSERT INTO Membership (FullName, Address, PhoneNumber, Email, DateOfBirth, DateJoined, PackageID, Status) " +
-                               $"VALUES ('{FullName}', '{Address}', '{PhoneNumber}', '{Email}', '{DateOfBirth}', '{DateJoined}', {PackageID}, '{Status}')";
+                string Query = $"INSERT INTO Membership (FullName, Address, PhoneNumber, Email, DateOfBirth, DateJoined, DateLeft, PackageID, Status) " +
+                               $"VALUES ('{FullName}', '{Address}', '{PhoneNumber}', '{Email}', '{DateOfBirth}', '{DateJoined}', '{DateLeft}', {PackageID}, '{Status}')";
                 Con.SetData(Query);
-                MessageBox.Show("Membership added successfully!");
-                ListerMemberships(); // Refresh the list
+                string lastIdQuery = "SELECT TOP 1 MembershipId FROM Membership ORDER BY MembershipId DESC";
+                DataTable lastIdTable = Con.GetData(lastIdQuery);
+                int membershipId = 0;
 
-                PaymentHistory ph = new PaymentHistory();
-                ph.Show();
-                this.Hide();
+                if (lastIdTable.Rows.Count > 0)
+                {
+                    membershipId = Convert.ToInt32(lastIdTable.Rows[0][0]);
+                }
+
+                MessageBox.Show("Membership added successfully!");
+
+                ListerMemberships();
             }
             catch (Exception ex)
             {
@@ -74,24 +96,23 @@ namespace ClubMembershipManagementSystem
                 string Email = Emailtb.Text;
                 DateTime DateOfBirth = DateOfBirthdt.Value;
                 DateTime DateJoined = DateJoineddt.Value;
+                DateTime DateLeft = DateLeftdt.Value; // Get DateLeft value
                 string Status = Statustb.Text;
                 int PackageID = int.Parse(PackageIDtb.Text);
 
                 string Query = $"UPDATE Membership SET FullName='{FullName}', Address='{Address}', PhoneNumber='{PhoneNumber}', " +
-                               $"Email='{Email}', DateOfBirth='{DateOfBirth}', DateJoined='{DateJoined}', PackageID={PackageID}, " +
+                               $"Email='{Email}', DateOfBirth='{DateOfBirth}', DateJoined='{DateJoined}', DateLeft='{DateLeft}', PackageID={PackageID}, " +
                                $"Status='{Status}' WHERE MembershipId={key}";
                 Con.SetData(Query);
                 MessageBox.Show("Membership updated successfully!");
-                ListerMemberships(); // Refresh the list
-
-                
-
+                ListerMemberships();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
 
         private void Delete_Click(object sender, EventArgs e)
         {
@@ -108,10 +129,12 @@ namespace ClubMembershipManagementSystem
                                                      MessageBoxButtons.YesNo);
                 if (confirmResult == DialogResult.Yes)
                 {
-                    string Query = $"DELETE FROM Membership WHERE MembershipId={key}";
-                    Con.SetData(Query);
-                    MessageBox.Show("Membership deleted successfully!");
-                    ListerMemberships(); // Refresh the list
+                    string deletePaymentHistoryQuery = $"DELETE FROM PaymentHistory WHERE MembershipId={key}";
+                    Con.SetData(deletePaymentHistoryQuery);
+                    string deleteMembershipQuery = $"DELETE FROM Membership WHERE MembershipId={key}";
+                    Con.SetData(deleteMembershipQuery);
+                    MessageBox.Show("Membership and all associated records deleted successfully!");
+                    ListerMemberships();
                 }
             }
             catch (Exception ex)
@@ -124,7 +147,8 @@ namespace ClubMembershipManagementSystem
         {
             if (Lister.SelectedRows.Count > 0)
             {
-                // Get selected row values
+
+                MembershipIDtb.Text = Lister.SelectedRows[0].Cells[0].Value.ToString();
                 FullNametb.Text = Lister.SelectedRows[0].Cells[1].Value.ToString();
                 Adresstb.Text = Lister.SelectedRows[0].Cells[2].Value.ToString();
                 PhoneNumbertb.Text = Lister.SelectedRows[0].Cells[3].Value.ToString();
@@ -134,25 +158,31 @@ namespace ClubMembershipManagementSystem
                 PackageIDtb.Text = Lister.SelectedRows[0].Cells[7].Value.ToString();
                 Statustb.Text = Lister.SelectedRows[0].Cells[8].Value.ToString();
 
-                // Store MembershipId (first cell, index 0)
+
                 key = Convert.ToInt32(Lister.SelectedRows[0].Cells[0].Value);
             }
         }
 
         private void Refresh_Click(object sender, EventArgs e)
         {
-            ListerMemberships(); // Reload membership data
+            ListerMemberships();
         }
 
         private void Search_Click(object sender, EventArgs e)
         {
             try
             {
-                // Initialize the base query
+
                 string Query = "SELECT * FROM Membership WHERE 1=1";
                 bool hasCondition = false;
 
-                // Check for Full Name input
+                if (!string.IsNullOrWhiteSpace(MembershipIDtb.Text))
+                {
+                    string fullNameQuery = MembershipIDtb.Text;
+                    Query += $" AND MembershipId LIKE '%{fullNameQuery}%'";
+                    hasCondition = true;
+                }
+
                 if (!string.IsNullOrWhiteSpace(FullNametb.Text))
                 {
                     string fullNameQuery = FullNametb.Text;
@@ -160,7 +190,7 @@ namespace ClubMembershipManagementSystem
                     hasCondition = true;
                 }
 
-                // Check for Address input
+
                 if (!string.IsNullOrWhiteSpace(Adresstb.Text))
                 {
                     string addressQuery = Adresstb.Text;
@@ -168,7 +198,7 @@ namespace ClubMembershipManagementSystem
                     hasCondition = true;
                 }
 
-                // Check for Phone Number input
+
                 if (!string.IsNullOrWhiteSpace(PhoneNumbertb.Text))
                 {
                     string phoneNumberQuery = PhoneNumbertb.Text;
@@ -176,7 +206,7 @@ namespace ClubMembershipManagementSystem
                     hasCondition = true;
                 }
 
-                // Check for Email input
+
                 if (!string.IsNullOrWhiteSpace(Emailtb.Text))
                 {
                     string emailQuery = Emailtb.Text;
@@ -185,7 +215,7 @@ namespace ClubMembershipManagementSystem
                 }
 
 
-                // Check for Stutus input
+
                 if (!string.IsNullOrWhiteSpace(Statustb.Text))
                 {
                     string statusquery = Statustb.Text;
@@ -194,7 +224,7 @@ namespace ClubMembershipManagementSystem
                 }
 
 
-                // Check for Package ID input
+
                 if (!string.IsNullOrWhiteSpace(PackageIDtb.Text))
                 {
                     int packageId;
@@ -210,10 +240,10 @@ namespace ClubMembershipManagementSystem
                     }
                 }
 
-                // Only execute the query if there are conditions to search for
+
                 if (hasCondition)
                 {
-                    Lister.DataSource = Con.GetData(Query); // Update to use Lister
+                    Lister.DataSource = Con.GetData(Query);
                 }
                 else
                 {
@@ -226,6 +256,9 @@ namespace ClubMembershipManagementSystem
             }
         }
 
-        
+        private void DateLeftdt_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -201,6 +201,7 @@ namespace ClubMembershipManagementSystem
             UserIDtb.PlaceholderText = "Insert ID";
             UserIDtb.Size = new Size(100, 23);
             UserIDtb.TabIndex = 46;
+            UserIDtb.Text = "Search Only";
             // 
             // Admin
             // 

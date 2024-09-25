@@ -163,6 +163,7 @@
             PackageSearchtb.PlaceholderText = "Insert ID";
             PackageSearchtb.Size = new Size(100, 23);
             PackageSearchtb.TabIndex = 24;
+            PackageSearchtb.Text = "search only";
             // 
             // PackageSearch
             // 

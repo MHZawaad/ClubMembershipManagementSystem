@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ClubMembershipManagementSystem
 {
@@ -15,7 +16,7 @@ namespace ClubMembershipManagementSystem
 
         private Functions Con;
         int key = 0;
-        int DailyRate = 1000;
+
         public PaymentHistory()
         {
             InitializeComponent();
@@ -25,11 +26,17 @@ namespace ClubMembershipManagementSystem
 
         public void ListerPaymentHistory()
         {
-
             var className = GetType().Name;
-            String Query = $"Select * from {className}";
+            String Query = $"SELECT * FROM {className}";
             Lister.DataSource = Con.GetData(Query);
+
+            PaymentHistoryIDtb.Text = "Search Only";
+            MemberShipIdtb.Clear();
+            Totaltb.Clear();
+            AmountPaidtb.Clear();
+
         }
+
         private void Refresh_Click_1(object sender, EventArgs e)
         {
             ListerPaymentHistory();
@@ -37,28 +44,41 @@ namespace ClubMembershipManagementSystem
 
         private void Search_Click(object sender, EventArgs e)
         {
-            //ill enter the is in PackageSearchtb and that row will appear\
+
             try
             {
-                string searchQuery = MemberShipIdtb.Text;
 
+                string Query = "SELECT * FROM PaymentHistory WHERE 1=1";
+                bool hasCondition = false;
 
-                if (string.IsNullOrWhiteSpace(searchQuery))
+                if (!string.IsNullOrWhiteSpace(PaymentHistoryIDtb.Text))
                 {
-                    MessageBox.Show("Please enter a search term.");
-                    return;
+                    string fullNameQuery = PaymentHistoryIDtb.Text;
+                    Query += $" AND PaymentHistoryId LIKE '%{fullNameQuery}%'";
+                    hasCondition = true;
+                }
+
+                if (!string.IsNullOrWhiteSpace(MemberShipIdtb.Text))
+                {
+                    string fullNameQuery = MemberShipIdtb.Text;
+                    Query += $" AND MembershipId LIKE '%{fullNameQuery}%'";
+                    hasCondition = true;
                 }
 
 
-                string Query = $"SELECT * FROM PaymentHistory WHERE MemberShipId LIKE '%{searchQuery}%'";
-                Lister.DataSource = Con.GetData(Query);
 
-
-                MemberShipIdtb.Text = "";
+                if (hasCondition)
+                {
+                    Lister.DataSource = Con.GetData(Query);
+                }
+                else
+                {
+                    MessageBox.Show("Please enter at least one search term.");
+                }
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(Ex.Message);
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
 
@@ -87,7 +107,7 @@ namespace ClubMembershipManagementSystem
                 Totaltb.Text = Lister.SelectedRows[0].Cells[2].Value.ToString();
                 AmountPaidtb.Text = Lister.SelectedRows[0].Cells[3].Value.ToString();
 
-                // PackageID (first cell, index 0)
+
                 key = Convert.ToInt32(Lister.SelectedRows[0].Cells[0].Value);
             }
 
@@ -102,7 +122,7 @@ namespace ClubMembershipManagementSystem
                 decimal amountPaid = decimal.Parse(AmountPaidtb.Text);
                 DateTime paymentDate = DateTime.Now;
 
-                // Retrieve previous payment details
+
                 DataTable previousPayment = Con.GetData($"SELECT TOP 1 * FROM PaymentHistory WHERE MembershipId = {membershipId} ORDER BY PaymentDate DESC");
                 decimal prevBalance = 0;
                 if (previousPayment.Rows.Count > 0)
@@ -110,16 +130,10 @@ namespace ClubMembershipManagementSystem
                     prevBalance = Convert.ToDecimal(previousPayment.Rows[0]["Balance"]);
                 }
 
-                // Calculate the days since the last payment
-                DateTime lastPaymentDate = DateTime.MinValue;
-                if (previousPayment.Rows.Count > 0)
-                {
-                    lastPaymentDate = Convert.ToDateTime(previousPayment.Rows[0]["PaymentDate"]);
-                }
-                decimal totalDays = (paymentDate - lastPaymentDate).Days;
-                decimal total = DailyRate * (totalDays / 30); // Monthly rate
 
-                // Retrieve package discount
+                decimal total = decimal.Parse(Totaltb.Text);
+
+
                 DataTable packageData = Con.GetData($"SELECT PackageDiscount FROM Packages WHERE PackageID = (SELECT PackageID FROM Membership WHERE MembershipId = {membershipId})");
                 decimal packageDiscount = 0;
                 if (packageData.Rows.Count > 0)
@@ -127,18 +141,18 @@ namespace ClubMembershipManagementSystem
                     packageDiscount = Convert.ToDecimal(packageData.Rows[0]["PackageDiscount"]); // Change this line to match the actual column name
                 }
 
-                // Perform calculations
-                decimal deduction = total * packageDiscount;
+
+                decimal deduction = total * packageDiscount / 100;
                 decimal netTotal = total - deduction + prevBalance;
                 decimal balance = netTotal - amountPaid;
 
-                // Insert into PaymentHistory
+
                 string insertQuery = $"INSERT INTO PaymentHistory (MembershipId, Total, Deduction, PrevBalance, NetTotal, AmountPaid, Balance, PaymentDate) " +
                                      $"VALUES ({membershipId}, {total}, {deduction}, {prevBalance}, {netTotal}, {amountPaid}, {balance}, '{paymentDate}')";
                 Con.SetData(insertQuery);
 
                 MessageBox.Show("Payment record added successfully.");
-                ListerPaymentHistory(); // Refresh the data grid
+                ListerPaymentHistory();
             }
             catch (Exception ex)
             {
@@ -146,6 +160,36 @@ namespace ClubMembershipManagementSystem
             }
         }
 
+        private void Delete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Lister.SelectedRows.Count > 0)
+                {
+                    int PaymentHistoryID = Convert.ToInt32(Lister.SelectedRows[0].Cells[0].Value);
+
+
+                    string deleteQuery = $"DELETE FROM PaymentHistory WHERE PaymentHistoryId = {PaymentHistoryID}";
+                    Con.SetData(deleteQuery);
+
+                    MessageBox.Show("Payment record deleted successfully.");
+                    ListerPaymentHistory();
+                }
+                else
+                {
+                    MessageBox.Show("Please select a record to delete.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void PaymentHistoryIDtb_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

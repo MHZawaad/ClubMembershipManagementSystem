@@ -61,6 +61,8 @@ namespace ClubMembershipManagementSystem
             Search = new Button();
             DateLeftdt = new DateTimePicker();
             label4 = new Label();
+            MembershipIDtb = new TextBox();
+            label11 = new Label();
             ((System.ComponentModel.ISupportInitialize)Lister).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -70,11 +72,11 @@ namespace ClubMembershipManagementSystem
             Add.BackColor = Color.Snow;
             Add.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Add.ForeColor = Color.Sienna;
-            Add.Location = new Point(384, 301);
+            Add.Location = new Point(19, 419);
             Add.Name = "Add";
-            Add.Size = new Size(126, 91);
+            Add.Size = new Size(126, 33);
             Add.TabIndex = 29;
-            Add.Text = "Add and go to payment";
+            Add.Text = "Add";
             Add.UseVisualStyleBackColor = false;
             Add.Click += Add_Click;
             // 
@@ -91,28 +93,28 @@ namespace ClubMembershipManagementSystem
             // 
             // DateJoineddt
             // 
-            DateJoineddt.Location = new Point(138, 301);
+            DateJoineddt.Location = new Point(207, 250);
             DateJoineddt.Name = "DateJoineddt";
-            DateJoineddt.Size = new Size(199, 23);
+            DateJoineddt.Size = new Size(234, 23);
             DateJoineddt.TabIndex = 27;
             // 
             // DateOfBirthdt
             // 
-            DateOfBirthdt.Location = new Point(114, 262);
+            DateOfBirthdt.Location = new Point(207, 221);
             DateOfBirthdt.Name = "DateOfBirthdt";
-            DateOfBirthdt.Size = new Size(199, 23);
+            DateOfBirthdt.Size = new Size(234, 23);
             DateOfBirthdt.TabIndex = 26;
             // 
             // PhoneNumbertb
             // 
-            PhoneNumbertb.Location = new Point(172, 194);
+            PhoneNumbertb.Location = new Point(207, 163);
             PhoneNumbertb.Name = "PhoneNumbertb";
-            PhoneNumbertb.Size = new Size(180, 23);
+            PhoneNumbertb.Size = new Size(234, 23);
             PhoneNumbertb.TabIndex = 25;
             // 
             // FullNametb
             // 
-            FullNametb.Location = new Point(103, 136);
+            FullNametb.Location = new Point(207, 105);
             FullNametb.Name = "FullNametb";
             FullNametb.Size = new Size(234, 23);
             FullNametb.TabIndex = 23;
@@ -122,7 +124,7 @@ namespace ClubMembershipManagementSystem
             label1.AutoSize = true;
             label1.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.SaddleBrown;
-            label1.Location = new Point(47, 194);
+            label1.Location = new Point(26, 167);
             label1.Name = "label1";
             label1.Size = new Size(119, 19);
             label1.TabIndex = 22;
@@ -133,7 +135,7 @@ namespace ClubMembershipManagementSystem
             label7.AutoSize = true;
             label7.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.SaddleBrown;
-            label7.Location = new Point(19, 301);
+            label7.Location = new Point(29, 254);
             label7.Name = "label7";
             label7.Size = new Size(111, 19);
             label7.TabIndex = 21;
@@ -144,7 +146,7 @@ namespace ClubMembershipManagementSystem
             label5.AutoSize = true;
             label5.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.SaddleBrown;
-            label5.Location = new Point(19, 265);
+            label5.Location = new Point(29, 225);
             label5.Name = "label5";
             label5.Size = new Size(94, 19);
             label5.TabIndex = 19;
@@ -155,7 +157,7 @@ namespace ClubMembershipManagementSystem
             label3.AutoSize = true;
             label3.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.SaddleBrown;
-            label3.Location = new Point(19, 136);
+            label3.Location = new Point(29, 109);
             label3.Name = "label3";
             label3.Size = new Size(78, 19);
             label3.TabIndex = 16;
@@ -215,7 +217,7 @@ namespace ClubMembershipManagementSystem
             label6.AutoSize = true;
             label6.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.SaddleBrown;
-            label6.Location = new Point(47, 228);
+            label6.Location = new Point(29, 194);
             label6.Name = "label6";
             label6.Size = new Size(47, 19);
             label6.TabIndex = 31;
@@ -223,9 +225,9 @@ namespace ClubMembershipManagementSystem
             // 
             // Emailtb
             // 
-            Emailtb.Location = new Point(100, 228);
+            Emailtb.Location = new Point(207, 192);
             Emailtb.Name = "Emailtb";
-            Emailtb.Size = new Size(180, 23);
+            Emailtb.Size = new Size(234, 23);
             Emailtb.TabIndex = 32;
             // 
             // label8
@@ -233,7 +235,7 @@ namespace ClubMembershipManagementSystem
             label8.AutoSize = true;
             label8.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.SaddleBrown;
-            label8.Location = new Point(15, 165);
+            label8.Location = new Point(26, 138);
             label8.Name = "label8";
             label8.Size = new Size(64, 19);
             label8.TabIndex = 33;
@@ -244,7 +246,7 @@ namespace ClubMembershipManagementSystem
             label9.AutoSize = true;
             label9.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label9.ForeColor = Color.SaddleBrown;
-            label9.Location = new Point(25, 397);
+            label9.Location = new Point(29, 341);
             label9.Name = "label9";
             label9.Size = new Size(51, 19);
             label9.TabIndex = 34;
@@ -255,7 +257,7 @@ namespace ClubMembershipManagementSystem
             label10.AutoSize = true;
             label10.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label10.ForeColor = Color.SaddleBrown;
-            label10.Location = new Point(2, 363);
+            label10.Location = new Point(29, 312);
             label10.Name = "label10";
             label10.Size = new Size(88, 19);
             label10.TabIndex = 35;
@@ -263,23 +265,23 @@ namespace ClubMembershipManagementSystem
             // 
             // Adresstb
             // 
-            Adresstb.Location = new Point(85, 165);
+            Adresstb.Location = new Point(207, 134);
             Adresstb.Name = "Adresstb";
-            Adresstb.Size = new Size(371, 23);
+            Adresstb.Size = new Size(234, 23);
             Adresstb.TabIndex = 36;
             // 
             // Statustb
             // 
-            Statustb.Location = new Point(106, 390);
+            Statustb.Location = new Point(207, 337);
             Statustb.Name = "Statustb";
-            Statustb.Size = new Size(180, 23);
+            Statustb.Size = new Size(234, 23);
             Statustb.TabIndex = 37;
             // 
             // PackageIDtb
             // 
-            PackageIDtb.Location = new Point(107, 359);
+            PackageIDtb.Location = new Point(207, 308);
             PackageIDtb.Name = "PackageIDtb";
-            PackageIDtb.Size = new Size(180, 23);
+            PackageIDtb.Size = new Size(234, 23);
             PackageIDtb.TabIndex = 38;
             // 
             // Update
@@ -310,7 +312,7 @@ namespace ClubMembershipManagementSystem
             // 
             // Refresh
             // 
-            Refresh.Location = new Point(146, 105);
+            Refresh.Location = new Point(130, 376);
             Refresh.Name = "Refresh";
             Refresh.Size = new Size(79, 22);
             Refresh.TabIndex = 61;
@@ -320,7 +322,7 @@ namespace ClubMembershipManagementSystem
             // 
             // Search
             // 
-            Search.Location = new Point(250, 105);
+            Search.Location = new Point(230, 376);
             Search.Name = "Search";
             Search.Size = new Size(87, 22);
             Search.TabIndex = 60;
@@ -330,27 +332,49 @@ namespace ClubMembershipManagementSystem
             // 
             // DateLeftdt
             // 
-            DateLeftdt.Location = new Point(138, 330);
+            DateLeftdt.Location = new Point(207, 279);
             DateLeftdt.Name = "DateLeftdt";
-            DateLeftdt.Size = new Size(199, 23);
+            DateLeftdt.Size = new Size(234, 23);
             DateLeftdt.TabIndex = 63;
+            DateLeftdt.ValueChanged += DateLeftdt_ValueChanged;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.SaddleBrown;
-            label4.Location = new Point(19, 330);
+            label4.Location = new Point(29, 282);
             label4.Name = "label4";
             label4.Size = new Size(70, 19);
             label4.TabIndex = 62;
             label4.Text = "DateLeft";
+            // 
+            // MembershipIDtb
+            // 
+            MembershipIDtb.Location = new Point(207, 76);
+            MembershipIDtb.Name = "MembershipIDtb";
+            MembershipIDtb.Size = new Size(234, 23);
+            MembershipIDtb.TabIndex = 65;
+            MembershipIDtb.Text = "search only";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label11.ForeColor = Color.SaddleBrown;
+            label11.Location = new Point(29, 80);
+            label11.Name = "label11";
+            label11.Size = new Size(116, 19);
+            label11.TabIndex = 64;
+            label11.Text = "Membership ID";
             // 
             // Membership
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1017, 464);
+            Controls.Add(MembershipIDtb);
+            Controls.Add(label11);
             Controls.Add(DateLeftdt);
             Controls.Add(label4);
             Controls.Add(Refresh);
@@ -416,5 +440,7 @@ namespace ClubMembershipManagementSystem
         private Button Search;
         private DateTimePicker DateLeftdt;
         private Label label4;
+        private TextBox MembershipIDtb;
+        private Label label11;
     }
 }
